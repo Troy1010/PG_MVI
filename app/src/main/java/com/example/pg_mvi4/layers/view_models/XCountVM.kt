@@ -22,6 +22,7 @@ class XCountVM(xCountDomainObj:XCountDomainObj): ViewModel() {
                     xcount2 = result.xCount2.toString()
                 )
             }
+            is XCountModelResult.newSum -> previousState
         }
     }
     private val intentStreamStream = PublishSubject.create<PublishSubject<Intent>>()

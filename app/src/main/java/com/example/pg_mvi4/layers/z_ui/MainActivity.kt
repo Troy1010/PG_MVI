@@ -8,8 +8,11 @@ import com.example.pg_mvi4.R
 import com.example.pg_mvi4.layers.domain.XCountDomainObj
 import com.example.pg_mvi4.layers.view_models.XCountVM
 import com.example.pg_mvi4.models.Intent
+import com.example.pg_mvi4.models.XCountModelResult
+import com.example.tmcommonkotlin.easyToast
 import com.example.tmcommonkotlin.logz
 import com.example.tmcommonkotlin.vmFactoryFactory
+import com.trello.rxlifecycle4.android.lifecycle.kotlin.bindToLifecycle
 import io.reactivex.rxjava3.subjects.PublishSubject
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -29,6 +32,11 @@ class MainActivity : AppCompatActivity() {
             textView1.text = it.xcount1
             textView2.text = it.xcount2
         }
+        xCountVM.eventStream.bindToLifecycle(this).subscribe {
+            when (it) {
+                is XCountModelResult.newSum -> easyToast("Sum:${it.sumValue}")
+            }
+        }
     }
 
     private fun setupClickListeners() {
@@ -37,6 +45,9 @@ class MainActivity : AppCompatActivity() {
         }
         btn_2.setOnClickListener {
             intentStream.onNext(Intent.BumpXCount2)
+        }
+        btn_toastSum.setOnClickListener {
+            intentStream.onNext(Intent.ToastSum)
         }
     }
 }

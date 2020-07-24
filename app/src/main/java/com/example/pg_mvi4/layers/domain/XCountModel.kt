@@ -18,6 +18,10 @@ class XCountModel(xCountDomainObj: XCountDomainObj) {
                     xCountDomainObj.xCount2++
                     XCountModelResult.newXCount2(xCountDomainObj.xCount2)
                 }
+                Intent.ToastSum -> {
+                    val sum = xCountDomainObj.xCount1 + xCountDomainObj.xCount2
+                    XCountModelResult.newSum(sum)
+                }
             }
         }
     }
