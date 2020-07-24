@@ -6,7 +6,7 @@ import com.example.pg_mvi4.layers.domain.XCountModel
 import com.example.pg_mvi4.models.Intent
 import com.example.pg_mvi4.models.XCountModelResult
 import com.example.pg_mvi4.models.XCountVMState
-import com.example.tmcommonkotlin.toLiveData
+import com.example.pg_mvi4.toLiveData
 import io.reactivex.rxjava3.subjects.PublishSubject
 
 class XCountVM(xCountDomainObj:XCountDomainObj): ViewModel() {

@@ -5,14 +5,13 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.lifecycle.observe
 import com.example.pg_mvi4.R
+import com.example.pg_mvi4.easyToast
 import com.example.pg_mvi4.layers.data_layer.Repo
 import com.example.pg_mvi4.layers.domain.XCountDomainObj
 import com.example.pg_mvi4.layers.view_models.XCountVM
 import com.example.pg_mvi4.models.Intent
 import com.example.pg_mvi4.models.XCountModelResult
-import com.example.tmcommonkotlin.easyToast
-import com.example.tmcommonkotlin.logz
-import com.example.tmcommonkotlin.vmFactoryFactory
+import com.example.pg_mvi4.vmFactoryFactory
 import com.trello.rxlifecycle4.android.lifecycle.kotlin.bindToLifecycle
 import io.reactivex.rxjava3.subjects.PublishSubject
 import kotlinx.android.synthetic.main.activity_main.*
