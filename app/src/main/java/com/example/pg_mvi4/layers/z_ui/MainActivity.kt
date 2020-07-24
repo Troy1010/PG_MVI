@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.lifecycle.observe
 import com.example.pg_mvi4.R
+import com.example.pg_mvi4.layers.data_layer.Repo
 import com.example.pg_mvi4.layers.domain.XCountDomainObj
 import com.example.pg_mvi4.layers.view_models.XCountVM
 import com.example.pg_mvi4.models.Intent
@@ -25,6 +26,11 @@ class MainActivity : AppCompatActivity() {
         xCountVM.mergeIntentStream(intentStream)
         setupClickListeners()
         setupObservers()
+
+        // debug
+        Repo.readProducts().bindToLifecycle(this).subscribe {
+            logz("Products size:${it.size}")
+        }
     }
 
     private fun setupObservers() {
