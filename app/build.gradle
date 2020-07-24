@@ -6,6 +6,15 @@ android {
     compileSdkVersion 30
     buildToolsVersion "30.0.0"
 
+    // JVM 1.8
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
     defaultConfig {
         applicationId "com.example.pg_mvi4"
         minSdkVersion 16
@@ -14,6 +23,8 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        // Multidex
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -22,6 +33,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+}
+
+// Repositories
+repositories {
+    mavenCentral()
+    mavenLocal()
 }
 
 dependencies {
@@ -33,5 +50,28 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    // TMCommonKotlin
+    implementation 'tminus1010.tmcommonkotlin:tmcommonkotlin:1.0.12'
+    // RxJava
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
+    implementation 'io.reactivex.rxjava3:rxjava:3.0.4'
+    // Activity+Fragment (supports Lifecycle)
+    implementation "androidx.activity:activity-ktx:1.1.0"
+    implementation "androidx.fragment:fragment-ktx:1.2.5"
+    // Lifecycle: ViewModel
+    def lifecycle_version = "2.2.0"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    // Rx -> LiveData
+    implementation "androidx.lifecycle:lifecycle-reactivestreams:$lifecycle_version"
+    // Multidex
+    def multidex_version = "2.0.1"
+    implementation "androidx.multidex:multidex:$multidex_version"
+    //RX Lifecycle
+    def rxlifecycle_version = "4.0.0"
+    implementation "com.trello.rxlifecycle4:rxlifecycle:$rxlifecycle_version"
+    implementation "com.trello.rxlifecycle4:rxlifecycle-android:$rxlifecycle_version"
+    implementation "com.trello.rxlifecycle4:rxlifecycle-kotlin:$rxlifecycle_version"
+    implementation "com.trello.rxlifecycle4:rxlifecycle-android-lifecycle-kotlin:$rxlifecycle_version"
 
 }
