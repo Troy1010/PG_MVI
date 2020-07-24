@@ -26,11 +26,6 @@ class MainActivity : AppCompatActivity() {
         xCountVM.mergeIntentStream(intentStream)
         setupClickListeners()
         setupObservers()
-
-        // debug
-        Repo.readProducts().bindToLifecycle(this).subscribe {
-            logz("Products size:${it.size}")
-        }
     }
 
     private fun setupObservers() {
