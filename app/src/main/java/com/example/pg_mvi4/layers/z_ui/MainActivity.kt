@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity() {
         xCountVM.eventStream.bindToLifecycle(this).subscribe {
             when (it) {
                 is XCountModelResult.newSum -> easyToast("Sum:${it.sumValue}")
+                is XCountModelResult.newProducts -> easyToast("ProductsSize:${it.products.size}")
             }
         }
     }
@@ -49,6 +50,9 @@ class MainActivity : AppCompatActivity() {
         }
         btn_toastSum.setOnClickListener {
             intentStream.onNext(Intent.ToastSum)
+        }
+        btn_productsSize.setOnClickListener {
+            intentStream.onNext(Intent.ToastProductCount)
         }
     }
 }
