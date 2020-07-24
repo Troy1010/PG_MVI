@@ -3,8 +3,6 @@ package com.example.pg_mvi4.layers.domain
 import com.example.pg_mvi4.layers.data_layer.Repo
 import com.example.pg_mvi4.models.Intent
 import com.example.pg_mvi4.models.XCountModelResult
-import com.example.tmcommonkotlin.log
-import com.example.tmcommonkotlin.logz
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.core.ObservableTransformer
 import javax.xml.transform.Transformer
